@@ -1,0 +1,17 @@
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  margin: 2rem;
+}
+
+/*.content {
+  max-width: 500px;
+  margin: auto;
+}*/ 
+
+.h2 {
+  
+}
