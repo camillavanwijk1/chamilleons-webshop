@@ -42,7 +42,7 @@ window.onload = function () {
 
   const newProduct = document.getElementById('newproduct');
 
-  const inputFields = document.getElementsByClassName('quantity');
+  const inputFields = document.getElementsByClassName('quantity'); //array like structure.
 
   document.getElementById('add-product').addEventListener('click', function () {
     addNewProduct(
@@ -110,7 +110,15 @@ function addCalcTotalPriceProduct(element, totalPriceElement) {
 
 //altijd camelCase gebruiken.
 //dit is een andere manier van noteren (niet perse beter)
+
 const multiply = (a, b) => a * b;
+
+// function Multiply(a, b) {
+//   const Result = a * b;
+
+//   return Result;
+// }
+
 //probeer functies 'puur' te maken. Dat betekend dat ze maar een doel hebben.
 function getTotalPrice(list) {
   let totalPrice = 0;
@@ -144,3 +152,19 @@ function calcTotalPriceProduct(event, totalPriceElement) {
 
   totalPriceElement.innerHTML = totalPrice;
 }
+
+const anObject = {
+  propertyOne: 'this value is a string',
+  colour: 'red',
+  name: 'Camilla',
+};
+
+console.log(anObject.colour);
+
+const { colour } = anObject;
+
+console.log(colour);
+
+const array = [1, 2, 3];
+
+const [zxy, b, ...rest] = array; //
