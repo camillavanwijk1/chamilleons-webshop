@@ -33,54 +33,41 @@
 
 */
 
-function Multiply (a, b){
-  let Outcome = a * b;
-  return Outcome;
-}
+window.onload = function () {
+  //door dit buiten de functie te plaatsen hoef je niet iedere keer 'te zoeken' naar dit element.
+  const totalPriceElement = document.getElementById('total-price');
 
-function calcTotalPriceProduct(event) {
-  
-  let onClickTarget = event;
-  //console.log(event);
+  const newProductName = document.getElementById('productname').value;
+  const newProductPrice = document.getElementById('productprice').value;
 
-  let targetAmount = Number(onClickTarget.value);
-  let targetPrice = Number(onClickTarget.parentElement.nextElementSibling.children.item(0).innerHTML);
-  let targetTotalPrice = Multiply(targetAmount, targetPrice);
+  const newProduct = document.getElementById('newproduct');
 
-  onClickTarget.parentElement.nextElementSibling.nextElementSibling.children.item(0).innerHTML = targetTotalPrice;
-  
-  let ListTotalPriceProduct = document.getElementsByClassName("total-price-product");
-  let totalPrice = 0;
-  
-  for (index=0; index<ListTotalPriceProduct.length; index++){
-    totalPrice = Number(ListTotalPriceProduct[index].innerHTML) + totalPrice;
+  const inputFields = document.getElementsByClassName('quantity');
+
+  document.getElementById('add-product').addEventListener('click', function () {
+    addNewProduct(
+      newProduct,
+      newProductName,
+      newProductPrice,
+      totalPriceElement
+    );
+  });
+
+  for (let i = 0; i < inputFields.length; i++) {
+    addCalcTotalPriceProduct(inputFields[i], totalPriceElement);
   }
-  
-  document.getElementById("total-price").innerHTML = totalPrice;
-}
+};
 
-function addCalcTotalPriceProduct(element){
-
-if (element){
-  element.setAttribute( "onchange", "calcTotalPriceProduct(this)" );
-} else {
-  console.log("element is empty");
-}
- 
-}
-
-function addNewProduct(){
-  
-  let newProductName = document.getElementById("productname").value;
-  let newProductPrice = document.getElementById("productprice").value;
-
-  const newProduct = document.getElementById("newproduct");
-  //newProduct.classList.add('product');
-
+function addNewProduct(
+  newProduct,
+  newProductName,
+  newProductPrice,
+  totalPriceElement
+) {
   const div1 = document.createElement('div');
   div1.classList.add('product');
   newProduct.appendChild(div1);
-  
+
   const header = document.createElement('h2');
   header.innerHTML = newProductName;
   div1.appendChild(header);
@@ -93,7 +80,7 @@ function addNewProduct(){
   const spanPrice = document.createElement('span');
   spanPrice.classList.add('price');
   spanPrice.innerHTML = newProductPrice;
-  pPricePerProduct.innerHTML = "Price per product: ";
+  pPricePerProduct.innerHTML = 'Price per product: ';
   pPricePerProduct.appendChild(spanPrice);
   div1.appendChild(pPricePerProduct);
 
@@ -101,10 +88,10 @@ function addNewProduct(){
   const spanTotalPriceProduct = document.createElement('span');
   spanTotalPriceProduct.classList.add('total-price-product');
   spanTotalPriceProduct.innerHTML = '0';
-  pTotalPrice.innerHTML = "Total price: ";
+  pTotalPrice.innerHTML = 'Total price: ';
   pTotalPrice.appendChild(spanTotalPriceProduct);
   div1.appendChild(pTotalPrice);
-    
+
   let input = document.createElement('input');
   input.placeholder = 'quantity';
   input.classList.add('quantity');
@@ -112,10 +99,48 @@ function addNewProduct(){
   div2.appendChild(input);
   console.log('added new product');
 
-  addCalcTotalPriceProduct(input);
+  addCalcTotalPriceProduct(input, totalPriceElement);
 }
 
+function addCalcTotalPriceProduct(element, totalPriceElement) {
+  element.addEventListener('change', (e) =>
+    calcTotalPriceProduct(e, totalPriceElement)
+  );
+}
 
+//altijd camelCase gebruiken.
+//dit is een andere manier van noteren (niet perse beter)
+const multiply = (a, b) => a * b;
+//probeer functies 'puur' te maken. Dat betekend dat ze maar een doel hebben.
+function getTotalPrice(list) {
+  let totalPrice = 0;
 
-/* data is going to be collected from your element
-   put into something to persist the data*/
+  for (let index = 0; index < list.length; index++) {
+    totalPrice = Number(list[index].innerHTML) + totalPrice;
+  }
+
+  return totalPrice;
+}
+
+function calcTotalPriceProduct(event, totalPriceElement) {
+  //Dit heet object deconstruction. En zal ik je uitgebreider laten zien.
+
+  const { value, parentElement } = event.target;
+
+  const targetAmount = Number(value);
+  const targetPrice = Number(
+    parentElement.nextElementSibling.children.item(0).innerHTML
+  );
+  const targetTotalPrice = multiply(targetAmount, targetPrice);
+
+  parentElement.nextElementSibling.nextElementSibling.children.item(
+    0
+  ).innerHTML = targetTotalPrice;
+
+  const listTotalPriceProduct = document.getElementsByClassName(
+    'total-price-product'
+  );
+  const totalPrice = getTotalPrice(listTotalPriceProduct);
+
+  totalPriceElement.innerHTML = totalPrice;
+}

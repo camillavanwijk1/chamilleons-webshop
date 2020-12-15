@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1 class="text-center logo">Chamilleon's amazing webshop</h1>
-    
+
     <div id="newproduct" class="flex-container">
-      
       <div class="product">
         <h2>Shoes</h2>
 
         <div class="div">
-          <input placeholder="quantity" class="quantity" type="number" onchange="calcTotalPriceProduct(this)" />
+          <input placeholder="quantity" class="quantity" type="number" />
         </div>
 
         <p>Price per product: <span class="price">10</span></p>
@@ -26,12 +31,11 @@
         <p>Total price: <span class="total-price-product">0</span></p>
       </div>
 
-      
       <div class="product">
         <h2>Shirt</h2>
 
         <div class="div">
-          <input placeholder="quantity" class="quantity" type="number" onchange="calcTotalPriceProduct(this)"/>
+          <input placeholder="quantity" class="quantity" type="number" />
         </div>
         <p>Price per product: <span class="price">6</span></p>
 
@@ -42,7 +46,7 @@
         <h2>Wedding dress</h2>
 
         <div class="div">
-          <input placeholder="quantity" class="quantity" type="number" onchange="calcTotalPriceProduct(this)"/>
+          <input placeholder="quantity" class="quantity" type="number" />
         </div>
         <p>Price per product: <span class="price">12</span></p>
 
@@ -50,23 +54,20 @@
       </div>
 
       <!--NEW PRODUCT-->
-     <!--<div  class="flex-container"></div>--> 
-
+      <!--<div  class="flex-container"></div>-->
     </div>
 
-      <h1 class="totalcosts">Total costs: <span id="total-price">0</span></h1>
+    <h1 class="totalcosts">Total costs: <span id="total-price">0</span></h1>
 
     <div id="addnewproduct" class="add-new">
       <h3>Add new product</h3>
-      <label for="productname">Product</label><br>
-      <input type="text" id="productname" name="productname"><br>
-      <label for="productprice">Price</label><br>
-      <input type="number" id="productprice" name="productprice"><br>
-      <input type="submit" value="Add" onclick="addNewProduct()">
+      <label for="productname">Product</label><br />
+      <input type="text" id="productname" name="productname" /><br />
+      <label for="productprice">Price</label><br />
+      <input type="number" id="productprice" name="productprice" /><br />
+      <input type="submit" value="Add" id="add-product" />
     </div>
 
-
-    <script src="./custom.js">  
-    </script>
+    <script src="./custom.js"></script>
   </body>
 </html>

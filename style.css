@@ -1,19 +1,22 @@
 body {
-  background: rgb(208,64,59);
-  background: linear-gradient(90deg, rgba(208,64,59,1) 50%, rgba(169,220,246,1) 50%);
-  color:black;
+  background: rgb(208, 64, 59);
+  background: linear-gradient(
+    90deg,
+    rgba(208, 64, 59, 1) 50%,
+    rgba(169, 220, 246, 1) 50%
+  );
+  color: black;
   font-family: 'Mulish', sans-serif;
   min-height: 100%;
-  
 }
 
 .logo {
-  color:#fde688;
-  font-size:65px;
+  color: #fde688;
+  font-size: 65px;
   /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
   -webkit-text-stroke: 2px black;
   text-align: center;
-  font-family:'Lobster', cursive;
+  font-family: 'Lobster', cursive;
 }
 
 .flex-container {
@@ -21,64 +24,71 @@ body {
   flex-wrap: wrap;
 }
 
-.product{
+.product {
   display: inline-block;
-  padding:0px 15px 5px 15px;
+  padding: 0px 15px 5px 15px;
   margin: 2rem;
   background-color: white;
   border-radius: 20px;
   box-shadow: 10px 10px;
 }
 
-.add-new{
+.add-new {
   display: inline-block;
-  padding:10px 15px 15px 15px;
+  padding: 10px 15px 15px 15px;
   margin: 15px;
   position: fixed;
   bottom: 0;
   right: 0;
-  background-color:#fde688;
+  background-color: #fde688;
 }
 
-.add-new h3{
-margin: 0px;
-padding: 0px;
-padding-bottom: 10px;
+.add-new h3 {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 10px;
 }
 
-input[id=productname]{
+/* id selector in css = # */
+
+#productname {
   margin-bottom: 5px;
   width: -moz-available;
 }
 
-input[id=productprice]{
+/* 
+input[id='productname'] {
+  margin-bottom: 5px;
+  width: -moz-available;
+} */
+
+input[id='productprice'] {
   margin-bottom: 5px;
   width: -moz-available;
 }
 
-
-input[type=submit]{
+input[type='submit'] {
   background-color: white;
   padding: 5px 20px;
-  margin-top: 10px ;
-  border:0px;
+  margin-top: 10px;
+  border: 0px;
   cursor: pointer;
-  font-weight:bold;
+  font-weight: bold;
   width: -moz-available;
   box-shadow: 1px 1px;
 }
 
-input[type=submit]:hover{
-  box-shadow:0px 0px;
+input[type='submit']:hover {
+  box-shadow: 0px 0px;
 }
 
-.totalcosts{
+.totalcosts {
   margin-left: 2rem;
   font-weight: bold;
   color: white;
   position: fixed;
   bottom: 0;
   left: 0;
-  font-family:'Lobster', cursive;
+  font-family: 'Lobster', cursive;
   text-shadow: -2px 0 #d0403b, 0 2px #d0403b, 2px 0 #d0403b, 0 -2px #d0403b;
 }
